@@ -1,4 +1,9 @@
-/*A. Server Setup
+/* install uuid 
+1. go to the folder where you want to install it
+2. open its terminal
+3. npm i uuid
+
+A. Server Setup
 Since we haven't started connecting to MongoDB quite yet, you can just save your bounties in a bounties array in your server code. Keep in mind that since it isn't being persisted anywhere, anytime you make a change to your server code and restart the server, you'll lose all your bounties.
 A bounty object should have:
 First Name
@@ -13,7 +18,7 @@ Since we don't have a good way to tell the server which item we want to PUT and 
 Using Express, create an API  /bounty route
 Write a GET endpoint that gets all bounties from the array and sends them to the client.
 Write a POST endpoint that adds a new bounty object to the array of bounties.
-**Remember, you'll have to play the part of the database and add an id property to the incoming bounty before saving it to the array of bounties. This way you'll be able to easily look it up by its id property in order to update and delete it later.*/
+Remember, you'll have to play the part of the database and add an id property to the incoming bounty before saving it to the array of bounties. This way you'll be able to easily look it up by its id property in order to update and delete it later.*/
 
 
 
