@@ -33,10 +33,10 @@ app.use(express.json())
 
 //fake data
 let bounties = [
-    { FirstName: 'Mike', LastName: 'Saleh', Living: true, BountyAmount: 4, Type: 'Jedi', _id: uuidv4() },
-    { FirstName: 'Zeezee', LastName: 'Smith', Living: false, BountyAmount: 10, Type: 'Sith', _id: uuidv4() },
-    { FirstName: 'Sam', LastName: 'Gary', Living: true, BountyAmount: 7, Type: 'Sith', _id: uuidv4() },
-    { FirstName: 'Alexa', LastName: 'Teranto', Living: false, BountyAmount: 2, Type: 'Jedi', _id: uuidv4() },
+    { FirstName: 'Mike', LastName: 'Saleh', isAlive: true, BountyAmount: 4, Type: 'Jedi', _id: uuidv4() },
+    { FirstName: 'Zeezee', LastName: 'Smith', isAlive: false, BountyAmount: 10, Type: 'Sith', _id: uuidv4() },
+    { FirstName: 'Sam', LastName: 'Gary', isAlive: true, BountyAmount: 7, Type: 'Sith', _id: uuidv4() },
+    { FirstName: 'Alexa', LastName: 'Teranto', isAlive: false, BountyAmount: 2, Type: 'Jedi', _id: uuidv4() },
 ];
 
 
