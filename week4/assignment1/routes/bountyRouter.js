@@ -13,7 +13,7 @@ const bounties = [
     {firstName: 'Savage', lastName: 'Opress', isAlive: true, bountyAmount: 80594564645, type: 'Sith', _id: uuidv4() },
     {firstName: 'Dessel', lastName: 'Bane', isAlive: false, bountyAmount: 464665464, type: 'Sith', _id: uuidv4() },
     {firstName: 'Tarre', lastName: 'Vizsla', isAlive: false, bountyAmount: 788446, type: 'Sith', _id: uuidv4() },
-    {firstName: 'Darth', lastName: 'Zannah', isAlive: false, bountyAmount: 12435465, type: 'Sith', _id: uuidv4()}
+    {firstName: 'Darth', lastName: 'Zannah', isAlive: false, bountyAmount: 12435465, type: 'Sith', _id: uuidv4() }
 ];
 
 //–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––– Server Request For Bounties –––––––––––––––––––––––––––––––––––––––––––
@@ -27,7 +27,7 @@ bountyRouter
         const newBounty = req.body;
         newBounty._id = uuidv4();
         bounties.push(newBounty);
-        res.send(`Successfully Added ${newBounty.firstName} ${newBounty.lastName} To The Data Base`);
+        res.send(`Successfully Added ${newBounty.firstName} ${newBounty.lastName} To The Data Base`)
     })
     // ---------------------------------------------------------------  Get One Request
     bountyRouter.get('/:bountyId', (req, res) => {
@@ -38,7 +38,7 @@ bountyRouter
     // –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––– Query Selector For Bounty ––––––––––––––––––––––––––––––––––––––––––––––
     // -------------------------------------------------- Get If Bounty Is Alive
     bountyRouter.get('/search/isAlive', (req, res) => {
-        // const isAlive = req.query.isAlive ---- Not Needed But Useful For Other Queries which are not boolean
+        // const isAlive = req.query.isAlive ---- Not Needed But Useful For Other Queries 
         const queryIsAlive = bounties.filter(bounty => bounty.isAlive === true);
         res.send(queryIsAlive);
     })
@@ -59,4 +59,4 @@ bountyRouter
     })
 
 
-module.exports = bountyRouter;
+module.exports = bountyRouter

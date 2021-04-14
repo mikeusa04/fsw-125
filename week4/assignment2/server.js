@@ -14,7 +14,7 @@ const todoRouter = require('./routes/todoRouter');
     app.use(boolParser());
 
 // ---------------------------------------------------------------- Server Imports
-app.use('/bounties', bountyRouter );
+app.use('/bounties', bountyRouter);
 app.use('/todo', todoRouter);
 // ------------------------------------------------------------------- Server Is Set To Listen
 //  -------------------Two Arguments: PORT, CB
