@@ -1,9 +1,9 @@
 const express = require('express');
-const tvShowRouter = express.Router();
+const bookRouter = express.Router();
 const { v4: uuidv4 } = require('uuid');
 
 //fake data
-let tvShows = [
+let books = [
     { title:'Devil And The White City', author:'Erik Larson', genre: 'science fiction', _id: uuidv4() },
     { title:'Le Transperceneige', author:'Jaques Lob', genre: 'science fiction', _id: uuidv4() },
     { title:'American Gods', author:'Neil Gaiman', gener: 'science fiction', _id: uuidv4() },

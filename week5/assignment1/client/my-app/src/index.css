@@ -1,0 +1,70 @@
+body {
+  text-align: center;
+  background-image: url("https://images.unsplash.com/photo-1523652705139-0bcd8a14a54a?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mzd8fGJvdW50eSUyMGh1bnRlcnxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60");
+}
+.heading {
+  font-family: 'Syne Mono', monospace;
+  font-size: 4em;
+}
+.allText {
+  background-color: rgb(204, 204, 196);
+  opacity: 0.7;
+  font-family: 'Roboto Mono', monospace;
+  margin-left: 110px;
+  margin-right: 110px;
+}
+.input {
+  height: 2em;
+  margin: 4px;
+}
+.addBountyBtn {
+  background-color: rgb(240, 12, 12);
+  opacity: 2.0;
+  border: none;
+  height: 2em;
+  font-weight: bolder;
+}
+.addBountyBtn:hover {
+  cursor: pointer;
+  background-color: slategray;
+  color: whitesmoke;
+}
+.editBtn {
+  background-color: rgb(243, 8, 8);
+  opacity: 2.0;
+  border: none;
+  height: 2em;
+  font-weight: bolder;
+  margin: 6px;
+}
+.editBtn:hover {
+  cursor: pointer;
+  background-color: slategray;
+  color: whitesmoke;
+}
+.deleteBtn {
+  background-color: rgb(236, 11, 11);
+  opacity: 2.0;
+  border: none;
+  height: 2em;
+  font-weight: bolder;
+  margin: 6px;
+}
+.deleteBtn:hover {
+  cursor: pointer;
+  background-color: slategray;
+  color: whitesmoke;
+}
+.closeBtn {
+  background-color: rgb(223, 77, 77);
+  opacity: 2.0;
+  border: none;
+  height: 2em;
+  font-weight: bolder;
+  margin: 6px;
+  cursor: pointer;
+}
+.closeBtn:hover {
+  cursor: pointer;
+  background-color: rgb(236, 253, 4);
+}
