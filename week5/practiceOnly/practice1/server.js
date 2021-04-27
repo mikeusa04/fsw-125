@@ -47,6 +47,9 @@ app.use(morgan('dev'));
 app.use('/books', bookRouter)
 app.use('/tv-shows', tvShowRouter)
 
+//Error handling
+
+
 //server startup logic
 app.listen(PORT, () => {
     console.log(`App started on port: ${PORT}`)

@@ -29,7 +29,7 @@ function BookFormHandler({submit, btnText, title, genre, _id}) {
               value={inputs.genre}
               onChange={handleChange}
               placeholder="Genre" />
-            <button>{btnText}</button>
+            <button type="submit">{btnText}</button>
         </form>
     )
 }

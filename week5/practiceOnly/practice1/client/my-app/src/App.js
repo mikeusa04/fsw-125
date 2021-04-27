@@ -54,7 +54,8 @@ function App() {
     <div className="book-container">
       <BookFormHandler
          btnText='Add Book' 
-         submit={addBook} />
+         submit={addBook} 
+      />
       {booksList}
     </div>
   );

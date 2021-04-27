@@ -42,9 +42,9 @@ export default function App() {
     const bountiesList = bounties.map(bounty => 
         <Bounty 
             {...bounty} 
-            key={bounty.firstName}
             deleteBounty={deleteBounty}
             editBounty={editBounty}
+            key={bounty.firstName}
         />) 
     return (
         <div className="allText">
