@@ -9,22 +9,23 @@ export default function App() {
     function getBounties() {
         axios.get("/bounties")
         .then(res => setBounties(res.data))
-        .catch(err => console.log(err))
+        .catch(err => console.log(err))// or console.log(err.response.data.errMsg)
     }
 
     function addBounty(newBounty) {
         axios.post("/bounties", newBounty)
         .then(res => {
+            setBounties((prevBounties) => [...prevBounties, res.data]);
         })
-        .catch(err => console.log(err))
+        .catch(err => console.log(err))// or console.log(err.response.data.errMsg)
     }
 
     function deleteBounty(bountyId) {
         axios.delete(`/bounties/${bountyId}`)
         .then(res => {
-            setBounties(prevBounties => prevBounties.filter(bounties => Bounty._id !== bountyId))
+            setBounties(prevBounties => prevBounties.filter(bounty => bounty._id !== bountyId))
         })
-        .catch(err => console.log(err))
+        .catch(err => console.log(err))// or console.log(err.response.data.errMsg)
     }
 
     function editBounty(updates, bountyId) {
@@ -32,7 +33,7 @@ export default function App() {
         .then(res => {
             setBounties(prevBounties => prevBounties.map(Bounty => Bounty._id !== bountyId ? Bounty : res.data))
         })
-        .catch(err => console.log(err))
+        .catch(err => console.log(err))// or console.log(err.response.data.errMsg)
     }
 
     useEffect(() => {

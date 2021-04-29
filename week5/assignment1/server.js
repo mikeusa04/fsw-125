@@ -45,6 +45,9 @@ go to package.json in client folder
  },
  "proxy": "http://localhost:9000"
 } 
+
+to run this program go client directory, open its terminal, cd my-app,type npm start then enter, go assignment1 open its terminal,
+type nodemon server.js then enter
 */
 
 
@@ -66,6 +69,13 @@ const todoRouter = require('./routes/todoRouter');
 // ---------------------------------------------------------------- Server Imports
 app.use('/bounties', bountyRouter);
 app.use('/todo', todoRouter);
+
+//--------------------(catching the erroe that coming out of the routes)----------------Error Hndling
+app.use((err, req, res, next) => {
+    console.log(err)
+    return res.send({errMsg: err.message})// return means give us the err and stop excuting anything bellow that or after that
+  })
+
 // ------------------------------------------------------------------- Server Is Set To Listen
 //  -------------------Two Arguments: PORT, CB
 app.listen(9000, () => {

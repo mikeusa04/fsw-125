@@ -20,28 +20,36 @@ const bounties = [
 bountyRouter
     //  -------------------------------------------------------------- Get All Request
     .get('/', (req, res) => {
+        res.status(200);
         res.send(bounties);
+        //or res.status(200).send(bounties);
     })
     // --------------------------------------------------------------- Post Request
     .post('/', (req, res) => {
         const newBounty = req.body;
         newBounty._id = uuid.v4();
         bounties.push(newBounty);
-        res.send(`Successfully Added ${newBounty.firstName} ${newBounty.lastName} To The Data Base`);
+        res.status(201).send(`Successfully Added ${newBounty.firstName} ${newBounty.lastName} To The Data Base`);
     })
     // ---------------------------------------------------------------  Get One Request
-    bountyRouter.get('/:bountyId', (req, res) => {
+    bountyRouter.get('/:bountyId', (req, res, next) => {
         const bountyId = req.params.bountyId;
-        const selected = bounties.find(bounty => bounty._id === bountyId);
-        res.send(selected);
+        const singularBounty = bounties.find(bounty => bounty._id === bountyId);
+        if(!singularBounty) {
+            const error = new Error(`The bounty with this id was NOT FOUND.`)
+            res.status(500)
+            return next(error)//next means to through the error outside the route and catch it in the next app.use(err,req,res,next)....etc look at the server.js
+          }
+        res.status(200).send(singularBounty);
     })
     // –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––– Query Selector For Bounty ––––––––––––––––––––––––––––––––––––––––––––––
     // -------------------------------------------------- Get If Bounty Is Alive
-    bountyRouter.get('/search/isAlive', (req, res) => {
-        // const isAlive = req.query.isAlive ---- Not Needed But Useful For Other Queries which are not boolean
+    bountyRouter.get('/search/living', (req, res) => {
+        //const isAlive = req.query.isAlive //---- Not Needed But Useful For Other Queries which are not boolean
         const queryliving = bounties.filter(bounty => bounty.living === true);
-        res.send(queryliving);
+        res.status(200).send(queryliving);
     })
+    
     //--------------------------------------------------- Delete Request
     bountyRouter.delete('/:bountyId', (req, res) => {
         const bountyId = req.params.bountyId;
@@ -55,7 +63,7 @@ bountyRouter
         const updateObject = req.body;
         const bountyIndex = bounties.findIndex(bounty => bounty._id === bountyId);
         const updatedBounty = Object.assign(bounties[bountyIndex], updateObject);
-        res.send(updatedBounty);
+        res.status(201).send(updatedBounty);//or send('Resource successfully updated')
     })
 
 
