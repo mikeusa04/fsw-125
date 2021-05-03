@@ -29,6 +29,7 @@ export default function AddBountyForm(props) {
                 value={inputs.firstName} 
                 onChange={handleChange}
                 placeholder="First Name"
+                required
             />
             <input 
                 className="input"
@@ -37,6 +38,7 @@ export default function AddBountyForm(props) {
                 value={inputs.lastName} 
                 onChange={handleChange}
                 placeholder="Last Name"
+                required
             />
             <br />
             <input 
@@ -46,6 +48,7 @@ export default function AddBountyForm(props) {
                 value={inputs.living} 
                 onChange={handleChange}
                 placeholder="Dead or Alive"
+                required
             />
             <input
                 className="input"
@@ -54,6 +57,7 @@ export default function AddBountyForm(props) {
                 value={inputs.type} 
                 onChange={handleChange}
                 placeholder="Type"
+                required
             />   
             <br />
     <button className="addBountyBtn" type="submit">{props.btnText}</button>

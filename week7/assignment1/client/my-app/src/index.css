@@ -1,0 +1,70 @@
+body {
+  text-align: center;
+  background-image: url("https://www.nydailynews.com/resizer/DLTqCUnAOVOLDIL1Zspp7Wc3w8Y=/415x593/top/arc-anglerfish-arc2-prod-tronc.s3.amazonaws.com/public/GFWBZIOKJFHOBANP27RR7A3JUE.jpg");
+}
+.heading {
+  font-family: 'Syne Mono', monospace;
+  font-size: 4em;
+}
+.allText {
+  background-color: rgb(204, 204, 196);
+  opacity: 0.7;
+  font-family: 'Roboto Mono', monospace;
+  margin-left: 250px;
+  margin-right: 250px;
+}
+.input {
+  height: 2em;
+  margin: 4px;
+}
+.addActorBtn {
+  background-color: rgb(240, 12, 12);
+  opacity: 2.0;
+  border: none;
+  height: 2em;
+  font-weight: bolder;
+}
+.addActorBtn:hover {
+  cursor: pointer;
+  background-color: slategray;
+  color: whitesmoke;
+}
+.editBtn {
+  background-color: rgb(243, 8, 8);
+  opacity: 2.0;
+  border: none;
+  height: 2em;
+  font-weight: bolder;
+  margin: 6px;
+}
+.editBtn:hover {
+  cursor: pointer;
+  background-color: slategray;
+  color: whitesmoke;
+}
+.deleteBtn {
+  background-color: rgb(236, 11, 11);
+  opacity: 2.0;
+  border: none;
+  height: 2em;
+  font-weight: bolder;
+  margin: 6px;
+}
+.deleteBtn:hover {
+  cursor: pointer;
+  background-color: slategray;
+  color: whitesmoke;
+}
+.closeBtn {
+  background-color: rgb(223, 77, 77);
+  opacity: 2.0;
+  border: none;
+  height: 2em;
+  font-weight: bolder;
+  margin: 6px;
+  cursor: pointer;
+}
+.closeBtn:hover {
+  cursor: pointer;
+  background-color: rgb(236, 253, 4);
+}
