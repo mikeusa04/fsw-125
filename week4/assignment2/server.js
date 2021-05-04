@@ -43,6 +43,8 @@ install boolean
 
 install morgan
 1. npm i morgan
+
+Express-Query-Boolean, npm i express-query-boolean
 */
 
 

@@ -1,13 +1,13 @@
  //  ------------------------------------------------------------------ Importing Express
 const express = require('express');
 
-//  ------------------------------------------------------------------ Setting bountyRouter with express.Router()
+//  ------------------------------------------------------------------ Setting actorRouter with express.Router()
 const actorRouter = express.Router();
 
 //  ------------------------------------------------------------------ Using uuid To Set A Unique id
 const  uuid = require('uuid');
 
-//–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––– Bounty Endpoint ––––––––––––––––––––––––––––––––––––––––––––––
+//–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––– Actor Endpoint ––––––––––––––––––––––––––––––––––––––––––––––
 const actors = [
     {firstName: 'Mel', lastName: 'Gibson', living: true, age: 65, born: ['New YORK', 'USA', 1956], _id: uuid.v4() },
     {firstName: 'Marilyn', lastName: 'Monroe', living: false, age: 36, born: ['Los Angeles', 'USA', 1926], _id: uuid.v4() },
@@ -16,7 +16,7 @@ const actors = [
     {firstName: 'Sophia', lastName: 'Loren', living: true, age: 86, born: ['Rome', 'Italy', 1934], _id: uuid.v4()}
 ];
 
-//–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––– Server Request For Bounties –––––––––––––––––––––––––––––––––––––––––––
+//–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––– Server Request For Actors –––––––––––––––––––––––––––––––––––––––––––
 actorRouter
     //  -------------------------------------------------------------- Get All Request
     .get('/', (req, res) => {
@@ -39,20 +39,33 @@ actorRouter
             const error = new Error(`The actor with this id was NOT FOUND.`)
             res.status(500)
             return next(error)//next means to through the error outside the route and catch it in the next app.use(err,req,res,next)....etc look at the server.js
-          }
+        }
         res.status(200).send(singularActor);
     })
-    // –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––– Query Selector For Bounty ––––––––––––––––––––––––––––––––––––––––––––––
-    // -------------------------------------------------- Get If Bounty Is Alive
-    actorRouter.get('/search/living', (req, res) => {
+    // –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––– Query Selector For Actor ––––––––––––––––––––––––––––––––––––––––––––––
+    // -------------------------------------------------- Get If Actor Is Alive
+    actorRouter.get('/search/living', (req, res, next) => {
         const living = req.query.living //---- Not Needed But Useful For Other Queries which are not boolean
-        const queryliving = actors.filter(actor => actor.living === true );
-        if (!living) {
-            const error = new Error("you must provide the living situation")
+
+        if (living.length == 0) {
+            const msg = new Error(`you must provide the living condition ${living}`);
+            res.status(200)
+            return next(msg)
+        }
+        try {
+            const queryliving = actors.filter(actor => actor.living === living );
+            if (!queryliving) {
+                const error = new Error("No Values found with living condition false")
+                res.status(200)
+                return next(error)
+            }
+            res.status(200).send(queryliving);
+        }
+        catch {
+            const error = new Error("you must provide the living condition")
             res.status(500)
             return next(error)
         }
-        res.status(200).send(queryliving);
     })
     
     //--------------------------------------------------- Delete Request
