@@ -49,10 +49,11 @@ bookRouter
 
         .put('/:bookId', (req, res) => {
             const bookId = req.params.bookId;
+            const updateObject = req.body
             const bookIndex = books.findIndex(book => book._id === bookId);
-            const updatedBookResource = Object.assign(books[bookIndex], re.body);
+            const updatedBookResource = Object.assign(books[bookIndex], updateObject);
 
-            res.send(`Resource successfully updated to ${updatedBookResource}`)
+            res.send(updatedBookResource)
         })  //PUT one
 
 module.exports = bookRouter;     
